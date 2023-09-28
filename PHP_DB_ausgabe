@@ -1,0 +1,32 @@
+<?php
+// Datenbankverbindung herstellen
+$servername = "localhost"; // Servername
+$username = "dein_benutzername"; // Benutzername
+$password = "dein_passwort"; // Passwort
+$database = "deine_datenbank"; // Datenbankname
+
+// Verbindung zur Datenbank herstellen
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
+if ($conn->connect_error) {
+    die("Verbindung zur Datenbank fehlgeschlagen: " . $conn->connect_error);
+}
+
+// SQL-Abfrage vorbereiten (zum Beispiel alle Daten aus einer Tabelle abrufen)
+$sql = "SELECT * FROM deine_tabelle";
+$result = $conn->query($sql);
+
+// Überprüfen, ob die Abfrage erfolgreich war
+if ($result->num_rows > 0) {
+    // Daten aus der Abfrage ausgeben
+    while ($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"] . " - Name: " . $row["name"] . " - Email: " . $row["email"] . "<br>";
+    }
+} else {
+    echo "Keine Daten gefunden.";
+}
+
+// Verbindung zur Datenbank schließen
+$conn->close();
+?>
