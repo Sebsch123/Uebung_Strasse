@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grundlagen von PHP</title>
+</head>
+<body>
+    <?php
+    // Kommentare in PHP können mit // oder /* ... */ gemacht werden
+
+    // Grundlegende Variablen und Ausgaben
+    $name = "John";
+    echo "Hallo, " . $name . "!"; // Ausgabe: Hallo, John!
+
+    // Datentypen
+    $alter = 30; // Ganzzahl (Integer)
+    $preis = 19.99; // Gleitkommazahl (Float)
+    $istWahr = true; // Boolean
+
+    // Bedingungen und Schleifen
+    if ($alter >= 18) {
+        echo "Du bist volljährig.";
+    } else {
+        echo "Du bist minderjährig.";
+    }
+
+    for ($i = 1; $i <= 5; $i++) {
+        echo "Schleifendurchlauf Nummer " . $i . "<br>";
+    }
+
+    // Funktionen
+    function sagHallo($name) {
+        echo "Hallo, " . $name . "!";
+    }
+
+    sagHallo("Alice"); // Aufruf der Funktion
+
+    // Arrays
+    $farben = array("Rot", "Grün", "Blau");
+    echo $farben[0]; // Gibt "Rot" aus
+
+    // Super Global Arrays (zur Verarbeitung von Formulardaten)
+    $benutzername = $_POST['benutzername'];
+    $email = $_POST['email'];
+
+    // MySQL-Datenbankverbindung (Beispiel)
+    $servername = "localhost";
+    $username = "benutzername";
+    $password = "passwort";
+    $dbname = "datenbankname";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Fehlerbehandlung
+    if ($conn->connect_error) {
+        die("Verbindungsfehler: " . $conn->connect_error);
+    }
+
+    // Schließe die Datenbankverbindung
+    $conn->close();
+    ?>
+</body>
+</html>
