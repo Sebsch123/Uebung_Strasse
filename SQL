@@ -128,6 +128,49 @@ Verwendet, um die Datenbankverbindung zu schließen und Ressourcen freizugeben.
 
 Syntax: mysqli_close($conn); 
 
- 
+<?php
+// Verbindung zur Datenbank herstellen
+$servername = "localhost"; // Servername
+$username = "dein_benutzername"; // Benutzername
+$password = "dein_passwort"; // Passwort
+$database = "deine_datenbank"; // Datenbankname
 
+// Verbindung zur Datenbank herstellen
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
+if (!$conn) {
+    die("Verbindung zur Datenbank fehlgeschlagen: " . mysqli_connect_error());
+}
+
+// SQL-Abfrage an die Datenbank senden
+$sql = "SELECT * FROM deine_tabelle";
+$result = mysqli_query($conn, $sql);
+
+// Eine Zeile aus dem Abfrageergebnis abrufen
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "ID: " . $row["id"] . " - Name: " . $row["name"] . "<br>";
+}
+
+// Die Anzahl der Zeilen im Abfrageergebnis ermitteln
+$row_count = mysqli_num_rows($result);
+
+// Eingabewerte sicher für die Verwendung in SQL-Abfragen bereinigen
+$name = mysqli_real_escape_string($conn, $_POST["name"]);
+
+// Die ID des zuletzt eingefügten Datensatzes abrufen
+$last_insert_id = mysqli_insert_id($conn);
+
+// Den letzten Datenbankfehler abrufen
+if (!$result) {
+    echo "Fehler: " . mysqli_error($conn);
+}
+
+// Datenbankverbindung schließen
+mysqli_close($conn);
+?>
+ 
+// Das date() Funktion zur Formatierung von Datum und Uhrzeit
+$current_date = date("Y-m-d H:i:s");
+echo "Aktuelles Datum und Uhrzeit: $current_date<br>";
  
