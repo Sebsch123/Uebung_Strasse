@@ -1,0 +1,133 @@
+In SQL gibt es mehrere Arten von Joins, die verwendet werden können, um Daten aus mehreren Tabellen basierend auf bestimmten Bedingungen zu kombinieren. Hier sind die gängigsten Joins und wann sie verwendet werden: 
+
+ 
+
+1. INNER JOIN: 
+
+   - Verwendet, um Datensätze aus beiden Tabellen zurückzugeben, die die Join-Bedingung erfüllen. 
+
+   - Syntax: SELECT * FROM Tabelle1 INNER JOIN Tabelle2 ON Tabelle1.spalte = Tabelle2.spalte 
+
+ 
+
+2. LEFT JOIN (auch LEFT OUTER JOIN genannt): 
+
+   - Gibt alle Datensätze aus der linken (ersten) Tabelle und die passenden Datensätze aus der rechten (zweiten) Tabelle zurück. 
+
+   - Syntax: SELECT * FROM Tabelle1 LEFT JOIN Tabelle2 ON Tabelle1.spalte = Tabelle2.spalte 
+
+ 
+
+3. RIGHT JOIN (auch RIGHT OUTER JOIN genannt): 
+
+   - Gibt alle Datensätze aus der rechten (zweiten) Tabelle und die passenden Datensätze aus der linken (ersten) Tabelle zurück. 
+
+   - Syntax: SELECT * FROM Tabelle1 RIGHT JOIN Tabelle2 ON Tabelle1.spalte = Tabelle2.spalte 
+
+ 
+
+4. FULL JOIN (auch FULL OUTER JOIN genannt): 
+
+   - Gibt alle Datensätze aus beiden Tabellen zurück und füllt die Lücken mit NULL-Werten, wenn keine Übereinstimmung vorliegt. 
+
+   - Syntax: SELECT * FROM Tabelle1 FULL JOIN Tabelle2 ON Tabelle1.spalte = Tabelle2.spalte 
+
+ 
+
+5. CROSS JOIN (auch CARTESIAN JOIN genannt): 
+
+   - Kombiniert jede Zeile aus der ersten Tabelle mit jeder Zeile aus der zweiten Tabelle. 
+
+   - Syntax: SELECT * FROM Tabelle1 CROSS JOIN Tabelle2 
+
+ 
+
+Diese Joins bieten verschiedene Möglichkeiten, um Daten aus mehreren Tabellen zu kombinieren. Die Auswahl des richtigen Joins hängt von den spezifischen Anforderungen Ihrer Abfrage und der Beziehung zwischen den Tabellen ab. 
+
+ 
+
+ 
+
+mysqli_connect(): 
+
+ 
+
+Verwendet, um eine Verbindung zur Datenbank herzustellen. 
+
+Syntax: $conn = mysqli_connect($servername, $username, $password, $dbname); 
+
+mysqli_query(): 
+
+ 
+
+Verwendet, um eine SQL-Abfrage an die Datenbank zu senden. 
+
+Syntax: $result = mysqli_query($conn, $sql); 
+
+mysqli_fetch_assoc(): 
+
+ 
+
+Verwendet, um eine Zeile aus dem Abfrageergebnis als assoziatives Array abzurufen. 
+
+Syntax: $row = mysqli_fetch_assoc($result); 
+
+mysqli_num_rows(): 
+
+ 
+
+Verwendet, um die Anzahl der Zeilen im Abfrageergebnis zu erhalten. 
+
+Syntax: $count = mysqli_num_rows($result); 
+
+mysqli_insert_id(): 
+
+ 
+
+Verwendet, um die automatisch generierte ID (falls vorhanden) der zuletzt eingefügten Datensatzes abzurufen. 
+
+Syntax: $id = mysqli_insert_id($conn); 
+
+mysqli_real_escape_string(): 
+
+ 
+
+Verwendet, um Zeichen zu maskieren und SQL-Injection-Angriffe zu verhindern. 
+
+Syntax: $escaped_string = mysqli_real_escape_string($conn, $string); 
+
+mysqli_update(): 
+
+ 
+
+Verwendet, um Datensätze in der Datenbank zu aktualisieren. 
+
+Syntax: $sql = "UPDATE table SET column1 = value1, column2 = value2 WHERE condition"; 
+
+mysqli_delete(): 
+
+ 
+
+Verwendet, um Datensätze aus der Datenbank zu löschen. 
+
+Syntax: $sql = "DELETE FROM table WHERE condition"; 
+
+mysqli_error(): 
+
+ 
+
+Verwendet, um die letzte Fehlermeldung der Datenbankverbindung abzurufen. 
+
+Syntax: $error = mysqli_error($conn); 
+
+mysqli_close(): 
+
+ 
+
+Verwendet, um die Datenbankverbindung zu schließen und Ressourcen freizugeben. 
+
+Syntax: mysqli_close($conn); 
+
+ 
+
+ 
