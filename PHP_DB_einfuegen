@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formular zur Datenbank</title>
+</head>
+<body>
+    <h2>Formular zur Datenbank</h2>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"><br><br>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" name="email" id="email"><br><br>
+
+        <input type="submit" name="submit" value="Absenden">
+    </form>
+
+    <?php
+    // Überprüfen, ob das Formular abgesendet wurde
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Datenbankverbindung herstellen
+        $servername = "localhost"; // Servername
+        $username = "dein_benutzername"; // Benutzername
+        $password = "dein_passwort"; // Passwort
+        $database = "deine_datenbank"; // Datenbankname
+
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        // Überprüfen, ob die Verbindung erfolgreich hergestellt wurde
+        if ($conn->connect_error) {
+            die("Verbindung zur Datenbank fehlgeschlagen: " . $conn->connect_error);
+        }
+
+        // Die eingegebenen Daten aus dem $_POST-Array abrufen
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+
+        // SQL-Abfrage vorbereiten, um Daten in die Datenbank einzufügen
+        $sql = "INSERT INTO deine_tabelle (name, email) VALUES ('$name', '$email')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Daten wurden erfolgreich in die Datenbank eingefügt.</p>";
+        } else {
+            echo "Fehler beim Einfügen der Daten: " . $conn->error;
+        }
+
+        // Verbindung zur Datenbank schließen
+        $conn->close();
+    }
+    ?>
+</body>
+</html>
