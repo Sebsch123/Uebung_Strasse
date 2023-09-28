@@ -1,0 +1,42 @@
+<?php
+// Addition
+$zahl1 = 10;
+$zahl2 = 5;
+$ergebnis_addition = $zahl1 + $zahl2;
+echo "Addition: $zahl1 + $zahl2 = $ergebnis_addition<br>";
+
+// Subtraktion
+$zahl3 = 8;
+$zahl4 = 3;
+$ergebnis_subtraktion = $zahl3 - $zahl4;
+echo "Subtraktion: $zahl3 - $zahl4 = $ergebnis_subtraktion<br>";
+
+// Multiplikation
+$zahl5 = 6;
+$zahl6 = 7;
+$ergebnis_multiplikation = $zahl5 * $zahl6;
+echo "Multiplikation: $zahl5 * $zahl6 = $ergebnis_multiplikation<br>";
+
+// Division
+$zahl7 = 20;
+$zahl8 = 4;
+$ergebnis_division = $zahl7 / $zahl8;
+echo "Division: $zahl7 / $zahl8 = $ergebnis_division<br>";
+
+// Modulo (Restwert nach der Division)
+$zahl9 = 17;
+$zahl10 = 5;
+$ergebnis_modulo = $zahl9 % $zahl10;
+echo "Modulo: $zahl9 % $zahl10 = $ergebnis_modulo<br>";
+
+// Potenz
+$zahl11 = 2;
+$exponent = 3;
+$ergebnis_potenz = pow($zahl11, $exponent);
+echo "Potenz: $zahl11 ^ $exponent = $ergebnis_potenz<br>";
+
+// Wurzel
+$zahl12 = 9;
+$ergebnis_wurzel = sqrt($zahl12);
+echo "Wurzel: √$zahl12 = $ergebnis_wurzel<br>";
+?>
