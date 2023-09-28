@@ -3,3 +3,6 @@ MariaDB:       https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.3.0&os=win
 
 Visual Studio: https://code.visualstudio.com/download
 XAMPP:         https://www.apachefriends.org/de/download.html
+
+
+Bei Fehler von Workbench:    https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170
